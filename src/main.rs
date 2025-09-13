@@ -1,14 +1,17 @@
 use leptos::prelude::*;
 
+mod components;
+
 #[component]
 fn App() -> impl IntoView {
     let (count, set_count) = signal(0);
     let double_count = move || count.get() * 2;
     let html = "<p>This HTML will be injected.</p>";
 
+    use crate::components::progress_bar::ProgressBar;
     view! {
         <div inner_html=html/>
-        
+
         <button
             on:click=move |_| { *set_count.write() += 1; }
             // class=("red", move || count.get() % 2 == 1)
@@ -23,24 +26,18 @@ fn App() -> impl IntoView {
             "Click me: "
             {count}
         </button>
-        <progress
-            max="50"
-            // signals are functions, so `value=count` and `value=move || count.get()`
-            // are interchangeable.
-            value=double_count
-        />
+        <br/>
+        <ProgressBar attr:id="foo1" progress=count.clone() />
+        <br/>
+        <ProgressBar attr:id="foo2" progress=Signal::derive(double_count) />
+
         <p>"Double count: "</p>
-        <p>
-            "Reactively: {move || count.get() * 2}: " {double_count} 
-        </p>
-        <p>
-            "Just rendered once: " {count.get() * 2}
-        </p>
+        <p>"Reactively: {move || count.get() * 2}: " {double_count}</p>
+        <p>"Just rendered once: " {count.get() * 2}</p>
     }
 }
 
 fn main() {
     console_error_panic_hook::set_once();
-
     leptos::mount::mount_to_body(App)
 }

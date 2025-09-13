@@ -21,6 +21,7 @@ fn App() -> impl IntoView {
             style:max-width="400px"
             // Set a CSS variable for stylesheet use
             style=("--columns", move || count.get().to_string())
+            class="px-10 pb-10 text-left bg-sky-600 hover:bg-sky-700 px-5 py-3 text-white rounded-lg"
             class=(["button-20", "rounded"], move || count.get() % 2 == 1)
         >
             "Click me: "

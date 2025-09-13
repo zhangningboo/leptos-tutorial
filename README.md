@@ -16,3 +16,12 @@ $ cargo install leptosfmt
 # leptosfmt ./**/*.rs
 $ # tool: https://github.com/leptos-rs/awesome-leptos
 ```
+
+## tailwindcss
+- tailwindcss v4.1.13 20250912
+```shell
+$ npm install tailwindcss @tailwindcss/cli
+$ npm view tailwindcss version
+$ npm view @tailwindcss/cli version
+$ npx tailwindcss -o styles/tailwindv4.1.13.css
+```

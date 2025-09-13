@@ -1,6 +1,7 @@
 use leptos::prelude::*;
 
 mod components;
+mod chapter;
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 struct Counter {
@@ -20,7 +21,10 @@ fn App() -> impl IntoView {
     let _counters: Vec<RwSignal<Counter>> = (1..=length).map(|idx| RwSignal::new(Counter { id: idx, count: RwSignal::new(0) })).collect::<Vec<_>>();
     let (counters, _set_counters) = signal::<Vec<Counter>>(vec![Counter { id: 0, count: RwSignal::new(0) }, Counter { id: 0, count: RwSignal::new(0) }]);
     use crate::components::progress_bar::ProgressBar;
+    use crate::chapter::chapter_3_4_for::ComplexForComponent;
     view! {
+        <ComplexForComponent />
+        
         <div inner_html=html/> 
 
         <ForEnumerate

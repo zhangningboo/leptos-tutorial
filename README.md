@@ -24,4 +24,5 @@ $ npm install tailwindcss @tailwindcss/cli
 $ npm view tailwindcss version
 $ npm view @tailwindcss/cli version
 $ npx tailwindcss -o styles/tailwindv4.1.13.css
+$ npx @tailwindcss/cli -i styles/index.css -o styles/tailwindv4.1.13.css --watch  # 实时监测项目中的css改动，实时更新需要的css
 ```

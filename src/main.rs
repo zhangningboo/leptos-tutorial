@@ -22,9 +22,11 @@ fn App() -> impl IntoView {
     let (counters, _set_counters) = signal::<Vec<Counter>>(vec![Counter { id: 0, count: RwSignal::new(0) }, Counter { id: 0, count: RwSignal::new(0) }]);
     use crate::components::progress_bar::ProgressBar;
     use crate::chapter::chapter_3_4_for::ComplexForComponent;
+    use crate::chapter::chapter_3_5_forms_and_inputs::Form;
     view! {
+        <Form />
         <ComplexForComponent />
-        
+
         <div inner_html=html/> 
 
         <ForEnumerate
@@ -35,7 +37,7 @@ fn App() -> impl IntoView {
                 view! {
                     <button
                         on:click=move |_| { *counter.count.write() += 1; }
-                        class="px-5 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-lg"
+                        class="px-3 py-1 bg-sky-600 hover:bg-sky-700 text-white rounded"
                     >{move || index.get()} ". Value: " {move || counter.count.get()}</button>
                     <br />
                 }
@@ -61,12 +63,12 @@ fn App() -> impl IntoView {
             // class=("red", move || count.get() % 2 == 1)
             style="position: absolute;"
             style:left=move || format!("{}px", count.get() + 100)
-            style:background-color=move || format!("rgb({}, {}, 100)", count.get(), 100)
+            // style:background-color=move || format!("rgb({}, {}, 100)", count.get(), 100)
             style:max-width="400px"
             // Set a CSS variable for stylesheet use
             style=("--columns", move || count.get().to_string())
-            class="px-10 pb-10 text-left bg-sky-600 hover:bg-sky-700 px-5 py-3 text-white rounded-lg"
-            class=(["button-20", "rounded"], move || count.get() % 2 == 1)
+            class="px-3 py-2 text-white bg-sky-400 hover:bg-sky-700"
+            class=([ "rounded", ], move || count.get() % 2 == 1)
         >
             "Click me: "
             {count}

@@ -18,11 +18,11 @@ $ # tool: https://github.com/leptos-rs/awesome-leptos
 ```
 
 ## tailwindcss
-- tailwindcss v4.1.13 20250912
+- tailwindcss v4.1.14 20251020
 ```shell
 $ npm install tailwindcss @tailwindcss/cli
 $ npm view tailwindcss version
 $ npm view @tailwindcss/cli version
-$ npx tailwindcss -o styles/tailwindv4.1.13.css
-$ npx @tailwindcss/cli -i styles/index.css -o styles/tailwindv4.1.13.css --watch  # 实时监测项目中的css改动，实时更新需要的css
+$ npx tailwindcss -o styles/tailwindv4.css
+$ npx @tailwindcss/cli -i styles/index.css -o styles/tailwindv4.css --watch  # 实时监测项目中的css改动，实时更新需要的css
 ```
